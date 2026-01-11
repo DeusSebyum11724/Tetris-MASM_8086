@@ -3,7 +3,140 @@ Tetris made in Assembly MASM for Intel 8086
 
 ---
 
-## README – How This Tetris Game Works (Full Technical Breakdown)
+## README – How To Run
+
+This project is a **16-bit DOS Tetris game** written in **MASM (8086 assembly)**.
+It must be **compiled into a DOS `.EXE`** and run inside a DOS emulator.
+
+---
+
+## On Windows
+
+### Prerequisites
+
+1. **EMU8086** (for compiling ASM → EXE)
+   Download:
+   [https://emu8086-microprocessor-emulator.en.download.it/](https://emu8086-microprocessor-emulator.en.download.it/)
+
+2. **DOSBox** (for running the DOS executable)
+   Download:
+   [https://www.dosbox.com/](https://www.dosbox.com/)
+
+---
+
+### Steps
+
+#### 1. Compile the program
+
+1. Install and open **EMU8086**
+2. Open `tetris.asm`
+3. Compile the file (EMU8086 will invoke MASM internally)
+4. Ensure `TETRIS.EXE` is generated successfully
+
+#### 2. Prepare DOSBox
+
+1. Create a folder, e.g.:
+
+   ```
+   C:\dos
+   ```
+2. Copy `TETRIS.EXE` into this folder
+
+#### 3. Run the game
+
+1. Open **DOSBox**
+2. Mount the folder:
+
+   ```
+   mount c c:\dos
+   c:
+   ```
+3. Run the game:
+
+   ```
+   TETRIS.EXE
+   ```
+
+---
+
+## On macOS
+
+### Prerequisites
+
+1. **Whisky** (Wine wrapper for macOS – required to run EMU8086)
+   Download:
+   [https://getwhisky.app/](https://getwhisky.app/)
+
+2. **EMU8086 (Windows version)**
+   Download:
+   [https://emu8086-microprocessor-emulator.en.download.it/](https://emu8086-microprocessor-emulator.en.download.it/)
+
+3. **DOSBox for macOS**
+   Download:
+   [https://www.dosbox.com/](https://www.dosbox.com/)
+
+---
+
+### Steps
+
+#### 1. Install EMU8086 using Whisky
+
+1. Install **Whisky**
+2. Create a new **Windows Bottle** inside Whisky
+3. Install **EMU8086** *inside that bottle*
+4. Launch EMU8086 through Whisky
+
+> ⚠️ EMU8086 does **not** run natively on macOS — **Whisky is required**
+
+---
+
+#### 2. Compile the program
+
+1. Open `tetris.asm` in EMU8086 (running via Whisky)
+2. Compile the file
+3. Locate the generated `TETRIS.EXE`
+4. Copy `TETRIS.EXE` to a macOS folder (e.g. `~/dos`)
+
+---
+
+#### 3. Run the game in DOSBox
+
+1. Open **DOSBox**
+2. Mount the folder:
+
+   ```
+   mount c ~/dos
+   c:
+   ```
+3. Run the game:
+
+   ```
+   TETRIS.EXE
+   ```
+
+---
+
+## Controls
+
+| Key       | Action           |
+| --------- | ---------------- |
+| ←         | Move left        |
+| →         | Move right       |
+| ↓         | Soft drop        |
+| ↑ / Space | Rotate           |
+| ESC       | Quit game / menu |
+
+---
+
+## Notes
+
+* The game runs in **VGA Mode 13h (320×200)**
+* Designed for **real-mode DOS**
+* Works identically on Windows and macOS when run inside DOSBox
+
+---
+
+## README – How This Tetris Game Works 
 
 ### 1. General Architecture
 
